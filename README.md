@@ -38,25 +38,7 @@ Volatility is calculated from historical returns, for example:
 df["return"] = df["close"].pct_change()
 df["volatility"] = df["return"].rolling(20).std()
 ```
-
-## 🤖 Machine Learning
-
-A regression model is trained to predict future stock volatility.
-
-Example:
-
-```python
-from sklearn.ensemble import RandomForestRegressor
-
-model = RandomForestRegressor(
-    n_estimators=300,
-    random_state=42
-)
-
-model.fit(X_train, y_train)
-```
-
-The trained model is saved using `joblib`.
+ 
 
 ## ⚡ FastAPI
 
@@ -71,14 +53,15 @@ GET /health
 ### Prediction
 
 ```http
-GET /predict/AAPL
+GET /predict/AMBUJACEM
+
 ```
 
 Example response:
 
 ```json
 {
-  "symbol": "AAPL",
+  "symbol": "AMBUJACEM",
   "predicted_volatility": 0.0245
 }
 ```
@@ -93,17 +76,11 @@ API documentation is available at:
 
 ```text
 stock-volatility/
-├── app/
-│   ├── main.py
-│   └── services/
+├── notebooks/
+│   ├── main.ipunb
 ├── data/
 ├── models/
 │   └── volatility_model.pkl
-├── training/
-│   └── train.py
-├── tests/
-├── Dockerfile
-├── requirements.txt
 └── README.md
 ```
 
@@ -141,7 +118,3 @@ Build and run:
 docker build -t stock-volatility-api .
 docker run -p 8000:8000 --env-file .env stock-volatility-api
 ```
-
-## ⚠️ Disclaimer
-
-This project is for **educational purposes only**. Volatility predictions are not financial advice or guarantees of future market performance.
