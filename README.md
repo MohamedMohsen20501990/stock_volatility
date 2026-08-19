@@ -78,7 +78,10 @@ API documentation is available at:
 stock-volatility/
 ├── notebooks/
 │   ├── main.ipunb
-├── data/
+├── main.py
+|-- data.py
+|-- model.py
+|-- config.py
 ├── models/
 │   └── volatility_model.pkl
 └── README.md
