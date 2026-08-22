@@ -1,8 +1,12 @@
 pandas
 numpy
-fastapi
+fastapi[standard]
 uvicorn
 arch
 matplotlib
 seaborn
 pydantic
+sqlalchemy
+requests
+joblib
+
